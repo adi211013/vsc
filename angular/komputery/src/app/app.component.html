@@ -1,0 +1,93 @@
+<section class="main">
+    <h1 style="text-align: center; background-color: bisque; height: 75px; display: block; margin: auto; color:teal;">Zamów komputer</h1>
+        <form #zamowenie="ngForm" (ngSubmit)="zamowienie()">
+            <section class="form">
+                <div class="sform">
+                    Wybierz plyte główna: <br>
+                    <select name="motherboard" [(ngModel)]="plyta" id="mb" #mb="ngModel" required>
+                        <option [ngValue]="null" >Brak</option>
+                        <option selected *ngFor="let item of motherboard" [ngValue]="item">{{item.nazwa}}</option>
+                    </select>
+                    <div class="warning" *ngIf="plyta==null">Podałeś złą wartość</div>
+                </div>
+                <div class="sform">
+                    Wybierz  procesor: <br>
+                    <select name="processor" [(ngModel)]="procek" id="cpu"  #cpu="ngModel" required>
+                        <option [ngValue]="null">Brak</option>
+                        <option selected *ngFor="let item of processor" [ngValue]="item">{{item.nazwa}}</option>
+                    </select>
+                    <div  class="warning" *ngIf="procek==null">Podałeś złą wartość</div>
+                </div>
+                <div class="sform">
+                    Wybierz  karte graficzna: <br>
+                    <select name="graphic" [(ngModel)]="karta" id="gpu"  #gpu="ngModel" required>
+                        <option [ngValue]="null" >Brak</option>
+                        <option selected *ngFor="let item of graphic" [ngValue]="item">{{item.nazwa}}</option>
+                    </select>
+                    <div  class="warning" *ngIf="karta==null">Podałeś złą wartość</div>
+                </div>
+                <div class="sform">
+                    Wybierz zasilacz: <br>
+                    <select name="psu" [(ngModel)]="zasilacz" id="psu"  #zs="ngModel" required>
+                        <option [ngValue]="null" >Brak</option>
+                        <option  *ngFor="let item of psu" [ngValue]="item">{{item.nazwa}}</option>
+                    </select>
+                    <div  class="warning" *ngIf="zasilacz==null">Podałeś złą wartość</div>
+                </div>
+                <div class="sform">
+                    Wybierz obudowe: <br>
+                    <select name="case" [(ngModel)]="obudowa" id="case"  #ob="ngModel" required>
+                        <option [ngValue]="null" >Brak</option>
+                        <option  *ngFor="let item of case" [ngValue]="item">{{item.nazwa}}</option>
+                    </select>
+                    <div  class="warning" *ngIf="obudowa==null">Podałeś złą wartość</div>
+                </div>
+                <div class="sform">
+                    Wybierz ram: <br>
+                    <select name="ram" [(ngModel)]="ramm" id="ram"   #r="ngModel" required>
+                        <option [ngValue]="null" >Brak</option>
+                        <option  *ngFor="let item of ram" [ngValue]="item">{{item.nazwa}}</option>
+                    </select>
+                    <div  class="warning" *ngIf="ramm==null">Podałeś złą wartość</div>
+                </div>
+                <div class="sform">
+                    Wybierz dysk: <br>
+                    <select name="ssd" [(ngModel)]="dysk" id="ssd"  #d="ngModel" required>
+                        <option [ngValue]="null" >Brak</option>
+                        <option  *ngFor="let item of ssd" [ngValue]="item">{{item.nazwa}}</option>
+                    </select>
+                    <div  class="warning" *ngIf="dysk==null">Podałeś złą wartość</div>
+                </div>
+                <div class="sform">
+                    Wybierz chlodzenie:<br>
+                    <select name="cooler" [(ngModel)]="chlodzenie" id="cpuc"  #cl="ngModel" required>
+                        <option [ngValue]="null" >Brak</option>
+                        <option  *ngFor="let item of cooler" [ngValue]="item">{{item.nazwa}}</option>
+                    </select>
+                    <div  class="warning" *ngIf="chlodzenie==null">Podałeś złą wartość</div>
+                </div>
+                <input type="submit" [disabled]="!zamowenie.valid" class="btn">
+            </section>
+        </form>
+        
+    <section class="podsumowanie" *ngIf="wyslane">
+        Cena zestawu: {{cena}} <br>
+        Podzespoły: <br>
+        Procesor: <br>
+        {{procek.nazwa}} {{procek.cena}}zł {{procek.socket}} <br>
+        Plyta główna: <br>
+        {{plyta.nazwa}} {{plyta.cena}}zł {{plyta.socket}} <br>
+        Karta graficzna: <br>
+        {{karta.nazwa}} {{karta.cena}}zł  <br>
+        Obudowa: <br>
+        {{obudowa.nazwa}} {{obudowa.cena}}zł {{obudowa.format}} <br>
+        Zasilacz: <br>
+        {{zasilacz.nazwa}} {{zasilacz.cena}}zł <br>
+        RAM: <br>
+        {{ramm.nazwa}} {{ramm.cena}}zł  <br>
+        SSD: <br>
+        {{dysk.nazwa}} {{dysk.cena}}zł  <br>
+        Chlodzenie: <br>
+        {{chlodzenie.nazwa}} {{chlodzenie.cena}}zł <br>
+    </section>
+</section>

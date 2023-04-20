@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+
+
+}
+
+.sform
+{
+    text-align: center;
+}
+.main
+{
+    background-color: blanchedalmond;
+    width: 100lvw;
+    height: 100lvh;
+    color:blueviolet;
+    font-size: 24px;
+    
+}
+.warning
+{
+    color: red;
+    font-size: 16px;
+}
+.btn
+{
+    width: 100px;
+    height: 50px;
+    color: black;
+    background-color: aqua;
+    border: 2px solid rgb(7, 116, 135);
+    display: block;
+    text-align: center;
+    margin-left: 48%;
+    margin-top: 10px;
+}
+.podsumowanie
+{
+text-align: center;
+font-size: 16px;
+}
+
+select {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  }
+  :root {
+    --select-border: #777;
+    --select-focus: blue;
+    --select-arrow: var(--select-border);
+  }

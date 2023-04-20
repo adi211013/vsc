@@ -64,6 +64,20 @@ export class AppComponent {
     {nazwa:"Gigabyte 16GB (2x8GB) 3333Mhz CL18 Aorus RGB",cena:249,pojemnosc:16},
     {nazwa:"ADATA 32GB (2x16GB) 3200MHz Gammix D10",cena:359,pojemnosc:32},
   ]
-
+  procek!:processor;
+  plyta!:motherboard;
+  karta!:graphic;
+  zasilacz!:psu;
+  ramm!:ram;
+  dysk!:ssd;
+  obudowa!:obudowa;
+  chlodzenie!:cooler;
+  wyslane:boolean=false;
+  cena:number=0;
+  zamowienie():void
+  {
+    this.cena=this.procek.cena+this.plyta.cena+this.karta.cena+this.zasilacz.cena+this.ramm.cena+this.dysk.cena+this.obudowa.cena+this.chlodzenie.cena;
+    this.wyslane=true
+  }
 }
   
