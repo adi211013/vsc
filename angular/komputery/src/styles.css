@@ -19,7 +19,7 @@ body
     height: 100lvh;
     color:blueviolet;
     font-size: 24px;
-    
+    justify-content: center;
 }
 .warning
 {
@@ -61,4 +61,16 @@ select {
     --select-border: #777;
     --select-focus: blue;
     --select-arrow: var(--select-border);
+  }
+  .podsumowanie
+  {
+      margin: auto;
+    margin-top: 80px;
+    font-size: 22px;
+    color: white;
+
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+/*     box-shadow: 10px 5px 5px #0093E9; */
+
+    width: 25%;
   }

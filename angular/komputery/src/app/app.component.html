@@ -1,30 +1,30 @@
 <section class="main">
     <h1 style="text-align: center; background-color: bisque; height: 75px; display: block; margin: auto; color:teal;">Zamów komputer</h1>
-        <form #zamowenie="ngForm" (ngSubmit)="zamowienie()">
+        <form #zamowenie="ngForm" (ngSubmit)="zamowienie()" >
             <section class="form">
                 <div class="sform">
                     Wybierz plyte główna: <br>
-                    <select name="motherboard" [(ngModel)]="plyta" id="mb" #mb="ngModel" required>
-                        <option [ngValue]="null" >Brak</option>
-                        <option selected *ngFor="let item of motherboard" [ngValue]="item">{{item.nazwa}}</option>
+                    <select name="motherboard" [(ngModel)]="plyta" id="mb" name="mb"  #mb="ngModel" required>
+                        <option [ngValue]="null" selected>Brak</option>
+                        <option  *ngFor="let item of motherboard" [ngValue]="item">{{item.nazwa}}</option>
                     </select>
-                    <div class="warning" *ngIf="plyta==null">Podałeś złą wartość</div>
+                    <div class="warning" *ngIf="mb.value==null &&(mb.dirty||mb.touched)">Podałeś złą wartość</div>
                 </div>
                 <div class="sform">
                     Wybierz  procesor: <br>
                     <select name="processor" [(ngModel)]="procek" id="cpu"  #cpu="ngModel" required>
-                        <option [ngValue]="null">Brak</option>
-                        <option selected *ngFor="let item of processor" [ngValue]="item">{{item.nazwa}}</option>
+                        <option [ngValue]="null" selected>Brak</option>
+                        <option  *ngFor="let item of processor" [ngValue]="item">{{item.nazwa}}</option>
                     </select>
-                    <div  class="warning" *ngIf="procek==null">Podałeś złą wartość</div>
+                    <div class="warning" *ngIf="cpu.value==null &&(cpu.dirty||cpu.touched)">Podałeś złą wartość</div>
                 </div>
                 <div class="sform">
                     Wybierz  karte graficzna: <br>
                     <select name="graphic" [(ngModel)]="karta" id="gpu"  #gpu="ngModel" required>
-                        <option [ngValue]="null" >Brak</option>
-                        <option selected *ngFor="let item of graphic" [ngValue]="item">{{item.nazwa}}</option>
+                        <option [ngValue]="null" selected >Brak</option>
+                        <option  *ngFor="let item of graphic" [ngValue]="item">{{item.nazwa}}</option>
                     </select>
-                    <div  class="warning" *ngIf="karta==null">Podałeś złą wartość</div>
+                    <div class="warning" *ngIf="gpu.value==null &&(gpu.dirty||gpu.touched)">Podałeś złą wartość</div>
                 </div>
                 <div class="sform">
                     Wybierz zasilacz: <br>
@@ -32,7 +32,7 @@
                         <option [ngValue]="null" >Brak</option>
                         <option  *ngFor="let item of psu" [ngValue]="item">{{item.nazwa}}</option>
                     </select>
-                    <div  class="warning" *ngIf="zasilacz==null">Podałeś złą wartość</div>
+                    <div class="warning" *ngIf="zs.value==null &&(zs.dirty||zs.touched)">Podałeś złą wartość</div>
                 </div>
                 <div class="sform">
                     Wybierz obudowe: <br>
@@ -40,7 +40,7 @@
                         <option [ngValue]="null" >Brak</option>
                         <option  *ngFor="let item of case" [ngValue]="item">{{item.nazwa}}</option>
                     </select>
-                    <div  class="warning" *ngIf="obudowa==null">Podałeś złą wartość</div>
+                    <div class="warning" *ngIf="ob.value==null &&(ob.dirty||ob.touched)">Podałeś złą wartość</div>
                 </div>
                 <div class="sform">
                     Wybierz ram: <br>
@@ -48,7 +48,7 @@
                         <option [ngValue]="null" >Brak</option>
                         <option  *ngFor="let item of ram" [ngValue]="item">{{item.nazwa}}</option>
                     </select>
-                    <div  class="warning" *ngIf="ramm==null">Podałeś złą wartość</div>
+                    <div class="warning" *ngIf="r.value==null &&(r.dirty||r.touched)">Podałeś złą wartość</div>
                 </div>
                 <div class="sform">
                     Wybierz dysk: <br>
@@ -56,7 +56,7 @@
                         <option [ngValue]="null" >Brak</option>
                         <option  *ngFor="let item of ssd" [ngValue]="item">{{item.nazwa}}</option>
                     </select>
-                    <div  class="warning" *ngIf="dysk==null">Podałeś złą wartość</div>
+                    <div class="warning" *ngIf="d.value==null &&(d.dirty||d.touched)">Podałeś złą wartość</div>
                 </div>
                 <div class="sform">
                     Wybierz chlodzenie:<br>
@@ -64,9 +64,10 @@
                         <option [ngValue]="null" >Brak</option>
                         <option  *ngFor="let item of cooler" [ngValue]="item">{{item.nazwa}}</option>
                     </select>
-                    <div  class="warning" *ngIf="chlodzenie==null">Podałeś złą wartość</div>
+                    <div class="warning" *ngIf="cl.value==null &&(cl.dirty||cl.touched)">Podałeś złą wartość</div>
                 </div>
-                <input type="submit" [disabled]="!zamowenie.valid" class="btn">
+                <input type="submit" [disabled]="!zamowenie.valid" class="btn" value="Zamow">
+                <input type="reset"  class="btn" value="Reset">
             </section>
         </form>
         
